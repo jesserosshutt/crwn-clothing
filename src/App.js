@@ -34,9 +34,10 @@ class App extends React.Component {
               ...snapShot.data()
           })
         })
-      } else {
+      } 
+      else {
         setCurrentUser(userAuth)
-        addCollectionAndDocuments('collections', collectionsArray.map(({title, items}) => ({title,items})))
+        // addCollectionAndDocuments('collections', collectionsArray.map(({title, items}) => ({title,items})))
       }
     })
   }
