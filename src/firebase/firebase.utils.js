@@ -50,19 +50,22 @@ const config = {
     return await batch.commit()
   }
 
-  export const convertCollectionsSnapshotToMap = (collections) => {
-    const transfromedCollection = collections.doc.map(doc => {
-      const { title, items } = doc.data()
+  export const convertCollectionsSnapshotToMap = collectionsSnapshot => {
+    const transformedCollection = collectionsSnapshot.doc.map(docSnapshot => {
+      const { title, items } = docSnapshot.data()
 
       return {
         routeName: encodeURI(title.toLowerCase()),
-        id: doc.id,
+        id: docSnapshot.id,
         title,
         items
       }
     })
 
-    console.log(transfromedCollection)
+    return transformedCollection.reduce((accumulator, collection) => {
+      accumulator[collection.title.toLowerCase()] = collection
+      return accumulator
+    }, {})
   }
 
   firebase.initializeApp(config)
