@@ -51,7 +51,7 @@ const config = {
   }
 
   export const convertCollectionsSnapshotToMap = collectionsSnapshot => {
-    const transformedCollection = collectionsSnapshot.doc.map(docSnapshot => {
+    const transformedCollection = collectionsSnapshot.docs.map(docSnapshot => {
       const { title, items } = docSnapshot.data()
 
       return {

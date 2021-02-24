@@ -10,7 +10,7 @@ import { firestore, convertCollectionsSnapshotToMap } from '../../firebase/fireb
 import { updateCollections } from '../../redux/shop/shop.actions'
 
 import './shop.styles.scss'
-import { updateCollections } from '../../redux/shop/shop.actions'
+// import { updateCollections } from '../../redux/shop/shop.actions'
 
 class ShopPage extends React.Component {
   unsubscribeFromSnapshot = null
@@ -41,7 +41,7 @@ class ShopPage extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  updateCollections: collectionsMap => dispatch(updateCollections(collections))
+  updateCollections: collectionsMap => dispatch(updateCollections(collectionsMap))
 })
 
 export default connect(null, mapDispatchToProps)(ShopPage)
